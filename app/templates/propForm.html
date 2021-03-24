@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="page-header">Add New Property</h1>
+
+{% include 'flash_messages.html' %}
+
+{# Add the appropriate method and enctype attributes to the form tag to allow for file uploads #}
+<form action="{{ url_for('property') }}" enctype="multipart/form-data" method = "POST">
+  {{ form.csrf_token }}
+
+  <h3>{{ form.title.label }}</h3>
+  {{ form.title(class = "form-control") }}
+
+  <h3>{{ form.description.label }}</h3>
+  {{ form.description(class = "form-control") }}
+
+  <h3>{{ form.rooms.label }}</h3>
+  {{ form.rooms(class = "form-control") }}
+
+  <h3>{{ form.bathrooms.label }}</h3>
+  {{ form.bathrooms(class = "form-control") }}
+
+  <h3>{{ form.price.label }}</h3>
+  {{ form.price(class = "form-control") }}
+
+  <h3>{{ form.propType.label }}</h3>
+  {{ form.propType(class = "form-control") }}
+
+  <h3>{{ form.location.label }}</h3>
+  {{ form.location(class = "form-control") }}
+
+  <h3> {{form.photo.label}} </h3>
+  {{form.photo(class = "form-control")}}
+
+
+  <button type="submit" name="submit" class="btn btn-primary">Add Property</button>
+</form>
+{% endblock %}

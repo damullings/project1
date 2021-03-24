@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% include 'flash_messages.html' %}
+
+
+<div>
+    <h2> Properties</h2>
+    <ul class = "propGrid">
+        {% for prop in props %}
+
+        <li class = "propItem">
+            <img class="propPhoto" src="{{url_for('getImage',filename=prop.photo)}}">
+            <h5 class = "title">{{prop.title}}</h5>
+            <p class = "loc">{{prop.location}}</p>
+            <p class = "price">{{prop.price}}</p>
+            <a class="btn btn-primary" class = "btn" href= "{{url_for('getProp',propertyid= prop.id)}}">View Property</a>
+        </li>
+
+        {% endfor %}
+    </ul>
+
+</div>
+
+
+
+{% endblock %}
